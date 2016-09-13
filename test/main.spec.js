@@ -31,6 +31,11 @@ describe('actions', () => {
     const ptHeight = 501;
     lastState = deviceReducer(lastState, deviceActions.windowResize(ptWidth, ptHeight));
     expect(lastState.orientation).toEqual('portrait');
+    const squareWidth = 500;
+    const squareHeight = 500;
+    lastState = deviceReducer(lastState, deviceActions.windowResize(squareWidth, squareHeight));
+    expect(lastState.orientation).toEqual('portrait');
 
+    
   });
 });
