@@ -1,0 +1,194 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "1.13.2",
+  "hash": "8e5a6c83c8b0a8929faa",
+  "publicPath": "",
+  "assetsByChunkName": {
+    "main": [
+      "index.js",
+      "index.js.map"
+    ]
+  },
+  "assets": [
+    {
+      "name": "index.js",
+      "size": 6490,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ]
+    },
+    {
+      "name": "index.js.map",
+      "size": 7405,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "extraAsync": false,
+      "size": 4595,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "index.js",
+        "index.js.map"
+      ],
+      "hash": "d3f357a7b1ee629523f5",
+      "parents": [],
+      "origins": [
+        {
+          "moduleId": 0,
+          "module": "multi main",
+          "moduleIdentifier": "multi main",
+          "moduleName": "multi main",
+          "loc": "",
+          "name": "main",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "multi main",
+      "name": "multi main",
+      "index": 0,
+      "index2": 3,
+      "size": 28,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": []
+    },
+    {
+      "id": 1,
+      "identifier": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/node_modules/babel-loader/index.js!/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/index.js",
+      "name": "./src/index.js",
+      "index": 1,
+      "index2": 2,
+      "size": 2174,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "multi main",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "multi main",
+          "module": "multi main",
+          "moduleName": "multi main",
+          "type": "single entry",
+          "userRequest": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/index.js"
+        }
+      ],
+      "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.deviceMiddleware = exports.deviceActions = exports.deviceReducer = undefined;\n\nvar _reducers = require('./reducers');\n\nvar _reducers2 = _interopRequireDefault(_reducers);\n\nvar _actions = require('./actions');\n\nvar _actions2 = _interopRequireDefault(_actions);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n/*\nconst deviceMiddleware = store => next => action => {\n  let result = next(action);\n  var lastCall = 0;\n  window.addEventListener('resize', () => {\n    next(windowResize(window.innerWidth, window.innerHeight));\n  });\n  window.addEventListener('orientationchange', () => {\n    setTimeout(() => (next(windowResize(window.innerWidth, window.innerHeight))), 500);\n  });\n  return result;\n};\n*/\nvar timeoutId = null;\nvar defaultDelay = 250;\nvar firstLoad = true;\nvar filterDispatches = function filterDispatches(ms, next) {\n  timeoutId && clearTimeout(timeoutId);\n\n  timeoutId = setTimeout(function () {\n    next();\n  }, defaultDelay);\n};\n\nvar deviceMiddleware = function deviceMiddleware(store) {\n  return function (next) {\n    var loadDate = new Date();\n    var lastMS = loadDate.getTime();\n    window.addEventListener('resize', function () {\n      filterDispatches(lastMS, function () {\n        next((0, _actions.windowResize)(window.innerWidth, window.innerHeight));\n      });\n    });\n    window.addEventListener('orientationchange', function () {\n      filterDispatches(lastMS, function () {\n        setTimeout(function () {\n          return next((0, _actions.windowResize)(window.innerWidth, window.innerHeight));\n        }, 500);\n      });\n    });\n    return function (action) {\n      lastMS = loadDate.getTime();\n      var result = next(action);\n      console.log('device action');\n      if (firstLoad) {\n        console.log('first Load');\n        firstLoad = false;\n        next((0, _actions.windowResize)(window.innerWidth, window.innerHeight));\n      }\n      return result;\n    };\n  };\n};\n\nexports.deviceReducer = _reducers2.default;\nexports.deviceActions = _actions2.default;\nexports.deviceMiddleware = deviceMiddleware;"
+    },
+    {
+      "id": 2,
+      "identifier": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/node_modules/babel-loader/index.js!/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/reducers/index.js",
+      "name": "./src/reducers/index.js",
+      "index": 2,
+      "index2": 1,
+      "size": 1955,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/node_modules/babel-loader/index.js!/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/index.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 1,
+          "moduleIdentifier": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/node_modules/babel-loader/index.js!/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "cjs require",
+          "userRequest": "./reducers",
+          "loc": "8:16-37"
+        }
+      ],
+      "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.device = undefined;\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol ? \"symbol\" : typeof obj; };\n\nvar _actions = require('../actions');\n\nvar defaultDevice = {\n  orientation: (typeof window === 'undefined' ? 'undefined' : _typeof(window)) === 'object' && window.innerWidth < window.innerHeight ? 'portrait' : 'landscape',\n  width: (typeof window === 'undefined' ? 'undefined' : _typeof(window)) === 'object' ? window.innerWidth : 0,\n  height: (typeof window === 'undefined' ? 'undefined' : _typeof(window)) === 'object' ? window.innerHeight : 0,\n  size: 'small'\n};\n\nvar breakPoints = {\n  large: 0,\n  medium: 1024,\n  small: 768\n};\n\nvar device = exports.device = function device() {\n  var state = arguments.length <= 0 || arguments[0] === undefined ? defaultDevice : arguments[0];\n  var action = arguments[1];\n\n  switch (action.type) {\n    case _actions.ORIENTATION_CHANGE:\n    case _actions.WINDOW_RESIZE:\n      var width = action.width || 0;\n      var height = action.height || 0;\n      var size = state.size;\n      if (width > breakPoints.medium) {\n        size = 'large';\n      } else if (width > breakPoints.small) {\n        size = 'medium';\n      } else if (width > 0) {\n        size = 'small';\n      }\n      var orientation = action.width > action.height ? 'landscape' : 'portrait';\n      return _extends({}, state, { size: size, width: width, orientation: orientation, height: height });\n  }\n  return state;\n};\n\nexports.default = device;"
+    },
+    {
+      "id": 3,
+      "identifier": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/node_modules/babel-loader/index.js!/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/actions/index.js",
+      "name": "./src/actions/index.js",
+      "index": 3,
+      "index2": 0,
+      "size": 438,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/node_modules/babel-loader/index.js!/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/index.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 1,
+          "moduleIdentifier": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/node_modules/babel-loader/index.js!/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "cjs require",
+          "userRequest": "./actions",
+          "loc": "12:15-35"
+        },
+        {
+          "moduleId": 2,
+          "moduleIdentifier": "/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/node_modules/babel-loader/index.js!/Users/jack.lightfoot/Documents/projects/innovations/progressivewebapps/local-t2-device-redux/src/reducers/index.js",
+          "module": "./src/reducers/index.js",
+          "moduleName": "./src/reducers/index.js",
+          "type": "cjs require",
+          "userRequest": "../actions",
+          "loc": "12:15-36"
+        }
+      ],
+      "source": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar WINDOW_RESIZE = exports.WINDOW_RESIZE = 'WINDOW_RESIZE';\nvar ORIENTATION_CHANGE = exports.ORIENTATION_CHANGE = 'ORIENTATION_CHANGE_EVENT';\n\nvar windowResize = exports.windowResize = function windowResize(width, height) {\n  return {\n    type: WINDOW_RESIZE,\n    width: width,\n    height: height\n  };\n};\n\nexports.default = {\n  windowResize: windowResize\n};"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}
